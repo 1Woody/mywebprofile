@@ -6,6 +6,23 @@
     <title>Friend Page</title>
 </head>
 <body>
-    
+    <form action="action_url" method="post">
+        User name: <input type="text" name="username" value="name"><br>
+        User password: <input type="password" name="password"><br>
+        <input type="radio" name="gender" value="male" checked> Male
+        <input type="radio" name="gender" value="female"> Female<br>
+        <input type="checkbox" name="pmud" value="PMUD"> Study PMUD<br>
+        <input type="checkbox" name="damo" value="DAMO"> Study DAMO<br>
+        <input type="button" onclick="alert('Fill all the fields.')" value="Help">
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+
+        <select name="topic">
+            <option value="html5">HTML5</option>
+            <option value="css3">CSS3</option>
+            <option value="javascript">javaScript</option>
+            <option value="jquery">jQuery</option>
+        </select>
+       </form>
 </body>
 </html>
