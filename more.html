@@ -6,12 +6,28 @@
     <title>More</title>
 </head>
 <body>
-    <center>
-        <h1>
-            Coming soon!
-        </h1>
+    <center hidden>
+        <h1> Coming soon! </h1>
         <a href="/index.html"> Back to profile</a>
     </center>
+
+    <center>
+        <h1> Login to watch this content:</h1>
+        <a href="/index.html"> Back to profile</a>
+    </center>
+    <br>
+    <form action="http://httpbin.org/post" target="_blank" method="post">
+        <fieldset>
+        <legend>Authentication</legend>
+        User name: <input type="text" name="username"><br>
+        User password: <input type="password" name="password"><br>
+        </fieldset>
+       
+        <input type="radio" name="account" value="Admin" checked> Admin
+        <input type="radio" name="account" value="Invited"> Invited<br>
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+       </form>
 
 </body>
 
