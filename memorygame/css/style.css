@@ -1,0 +1,66 @@
+*, *::before, *after {
+    box-sizing: border-box;
+}
+
+/*Custom porpeties*/
+
+:root {
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent:#303030;
+    --clr-accent2:#F2EBBF;
+    --clr-accent3:#F06060;
+    
+
+    --fs-h1: 5rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+}
+
+body{
+	background: var(--clr-dark);
+
+}
+
+table{
+    margin: 0 auto;
+    margin-bottom: 2em;
+	text-align: center;
+}
+
+td{
+    background: var(--clr-accent2);
+    border-radius: 1em;
+}
+
+h1{
+	font-family: var(--ff-primary);
+	font-size: var(--fs-h1);
+    margin-top: 0.5em;
+    margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	color: white;
+	text-align: center;
+}
+
+.fab {
+    font-size: 9em;
+    transition: transform 200ms ease-in-out;
+}
+
+
+.fab:hover{
+    opacity: 0.5;
+    transform: scale(1.2);
+    color: var(--clr-accent3);
+}

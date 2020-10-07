@@ -55,6 +55,10 @@ nav {
     color: var(--clr-accent3);
 }
 
+.fab {
+    color: var(--clr-accent3);
+}
+
 .nav__item a {
     font-size: var(--fs-h3);
     font-weight: var(--fw-bold);
