@@ -69,12 +69,11 @@ strong { font-weight: var(--fw-bold) }
     color: var(--clr-light);
     background: var(--clr-accent);
   }
-  
-  ::selection {
+
+::selection {
     color: var(--clr-light);
     background: var(--clr-accent);
   }
-
 
 :focus {
     outline: 3px solid var(--clr-accent);
@@ -247,6 +246,7 @@ h3{ font-size: var(--fs-h3) }
     }
 }
 
+/* About me */
 
 .about-me {
     max-width: 900px;
