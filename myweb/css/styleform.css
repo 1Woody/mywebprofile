@@ -1,0 +1,90 @@
+*, *::before, *after {
+    box-sizing: border-box;
+}
+
+/*Custom porpeties*/
+
+:root {
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Source Code Pro', monospace;
+
+    --fw-reg: 300;
+    --fw-bold: 900;
+
+    --clr-light: #fff;
+    --clr-dark: #303030;
+    --clr-accent:#303030;
+    --clr-accent2:#F2EBBF;
+    --clr-accent3:#F06060;
+    
+
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25), 
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+
+/* typography*/
+
+h1, h2, h3 {
+    line-height: 1;
+    margin: 0;
+}
+
+h1{ font-size: var(--fs-h1) }
+h2{ font-size: var(--fs-h2) }
+h3{ font-size: var(--fs-h3) }
+
+/* General Styles*/
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 5em 2em;
+}
+
+strong { font-weight: var(--fw-bold) }
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: .5em 2.5em;
+    background: var(--clr-accent3);
+    color: var(--clr-accent2);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+/* Title */
+.section__title--header, 
+.section__title--form {
+    margin-top: .5em;
+    text-align: center ;
+}
+/* Form */
+.Form {
+    align-self: center;
+}
+input {
+    margin: 0 auto;
+    text-align: justify;
+    align-self: flex-start;
+    margin: .25em;
+}

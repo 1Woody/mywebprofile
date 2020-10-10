@@ -218,7 +218,6 @@ h3{ font-size: var(--fs-h3) }
 
     .intro__img {
         margin-left: 1rem;
-        min-width: 400px;
         max-width: 400px;
     }
 }
@@ -252,14 +251,13 @@ h3{ font-size: var(--fs-h3) }
 
     .about-me__img {
         position: relative;
-        min-width: 400px;
         max-width: 400px;
         margin-left: 2em;
         z-index: 2;
     }
 }
 
-/* My services section */
+/* My skills section */
 
 .my-skills {
     background-color: var(--clr-dark);
@@ -269,12 +267,12 @@ h3{ font-size: var(--fs-h3) }
     text-align: center;
 }
 
-.section__title--services {
+.section__title--skills {
     color: var(--clr-light);
     position: relative;
 }
 
-.section__title--services::after {
+.section__title--skills::after {
     content: '';
     display: block;
     width: 2em;
@@ -284,28 +282,28 @@ h3{ font-size: var(--fs-h3) }
     opacity: 0.75;
 }
 
-.services {
+.skills {
     margin-bottom: 4em;
 }
 
-.service__text--ul {
+.skill__text--ul {
     text-align: center, justify;
     list-style-type: none;
     margin: 0 auto;
 }
 
-.service {
+.skill {
     max-width: 500px;
     margin: 0 auto;
 }
 
-.service__text {
+.skill__text {
     text-align: justify;
 }
 
 
 @media (min-width: 925px) {
-    .services {
+    .skills {
         display: flex;
         font-weight: var(--fw-bold);
         max-width: 1000px;
@@ -313,15 +311,15 @@ h3{ font-size: var(--fs-h3) }
         margin-right: auto;
     }
      
-    .services h3 {
+    .skills h3 {
         font-weight: var(--fw-reg);
     }
 
-    .service {
+    .skill {
         max-width: 500px;
     }
 
-    .service__text--ul {
+    .skill__text--ul {
         text-align: justify;
         margin: 0 auto;
         list-style-type: none;

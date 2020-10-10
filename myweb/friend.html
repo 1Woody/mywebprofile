@@ -3,66 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friend Page</title>
+    <title>Contact me</title>
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" 
+    integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styleform.css">
 </head>
 <body>
-    <nav>
-        <center>
-            <h1>Become a Friend</h1>
-            <a href="index.html"> Go back</a>
-        </center>
-    </nav>
-    <section class="Form">
-        <h2> Complete with your info below:</h2>
-        <!-- Name, sex, date of birth, email, phone, studies, languages, fav col,hobbies -->
-        <form action="http://httpbin.org/post" method="post">
+     <h1 class="section__title section__title--header">Contact Me</h1>
+     
+     <h2 class="section__title section__title--form"> Complete with your info below </h2>
+     <section class="Form">
+        <form action="http://httpbin.org/post" method="post" class="form__body">
             Full Name: <input type="text" name="fullname" ><br>
             
             <input type="radio" name="gender" value="male" checked> Male
             <input type="radio" name="gender" value="female"> Female
             <input type="radio" name="gender" value="other"> Other<br>
             
-            Birth Date: <input type="date" name="birth"> <br>
-           
             Phone Number: <input type="number" name="number"><br>
             
             Mail: <input type="email" name="mail"><br>
-            <input type="checkbox" name="study" value="study"> Currently studying<br>
-            <input type="checkbox" name="work" value="work"> Currently working<br>
-            <input type="checkbox" name="sofa" value="sofa"> Sofing <br>
            
-            Choose your favorite color: <br>
-            <input type="color" name="color" value="color"><br>
-            <label for="Hobbies"> Explain your Hobbies: </label><br>
+            <label for="Hobbies"> Other Information: </label><br>
             <textarea name="Hobbies" rows="5" cols="50"></textarea><br>
            
-            Languages: <br>
-            <select name="topic-lang" size="5" multiple>
-                <option value="spanish">Spanish</option>
-                <option value="catalan">Catalan</option>
-                <option value="english">English</option>
-                <option value="german">German</option>  
-                <option value="french">French</option>  
-            </select><br>
-           
-            Choose your programming languages:
-            <select name="topic-prog">
-                <option value="html5">HTML5</option>
-                <option value="css3">CSS3</option>
-                <option value="javascript">javaScript</option>
-                <option value="jquery">jQuery</option>  
-            </select><br>
-           
-            Other programming languages:<br>
-            <textarea name="topic-prog" rows="3" cols="50"></textarea><br>
             <br> Attach your CV here : <br>
-            <input type="file"><br><br>
+            <input type="file"><br>
 
             <input type="button" onclick="alert('Fill all the fields.')" value="Help">
             <input type="reset" value="Reset">
             <input type="submit" value="Submit">
            </form>
-
     </section>
 </body>
 </html>
