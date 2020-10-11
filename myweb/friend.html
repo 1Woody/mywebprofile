@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="css/styleform.css">
 </head>
 <body>
-     <h1 class="section__title section__title--header">Contact Me</h1>
-     
-     <h2 class="section__title section__title--form"> Complete with your info below </h2>
-     <section class="Form">
+    <header>
+        <h1 class="section__title section__title--header">Contact Me</h1>
+        <h2 class="section__title section__title--form"> Complete with your info below </h2>
+    </header>
+    <section class="Form">
         <form action="http://httpbin.org/post" method="post" class="form__body">
             Full Name: <input type="text" name="fullname" ><br>
             
@@ -32,14 +33,14 @@
             Mail: <input type="email" name="mail"><br>
            
             <label for="Hobbies"> Other Information: </label><br>
-            <textarea name="Hobbies" rows="5" cols="50"></textarea><br>
+            <textarea name="Hobbies" rows="5" cols="40"></textarea><br>
            
             <br> Attach your CV here : <br>
             <input type="file"><br>
 
-            <input type="button" onclick="alert('Fill all the fields.')" value="Help">
-            <input type="reset" value="Reset">
-            <input type="submit" value="Submit">
+            <input type="button" onclick="alert('Fill all the fields.')" value="Help" class="btn">
+            <input type="reset" value="Reset" class="btn">
+            <input type="submit" value="Submit" class="btn">
            </form>
     </section>
 </body>
