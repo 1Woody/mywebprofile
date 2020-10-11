@@ -18,7 +18,7 @@
     --clr-accent3:#F06060;
     
 
-    --fs-h1: 5rem;
+    --fs-h1: 9vw;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
@@ -31,29 +31,30 @@ body{
 }
 
 table{
-    margin: 0 auto;
-    margin-bottom: 2em;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
 }
 
 td{
     background: var(--clr-accent2);
-    border-radius: 0.5em;
+    border-radius: 10%;
 }
 
 h1{
 	font-family: var(--ff-primary);
     font-size: var(--fs-h1);
     color: var(--clr-light);
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: .2em;
+    margin-bottom: .2em;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 }
 
+
 .fab {
-    font-size: 10em;
+    font-size: 10vw;
     transition: transform 200ms ease-in-out;
     color: var(--clr-accent);
 }
@@ -63,3 +64,4 @@ h1{
     transform: scale(1.2);
     color: var(--clr-accent3);
 }
+
