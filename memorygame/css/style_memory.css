@@ -16,9 +16,14 @@
     --clr-accent:#303030;
     --clr-accent2:#F2EBBF;
     --clr-accent3:#F06060;
-    
+    --clr-google:  #FF2D00;
+    --clr-amazon: #FF8C00;
+    --clr-android: #45BF55;
+    --clr-apple: #2b0824;
+    --clr-facebook: #04756F;
+    --clr-windows: #04BFBF;
 
-    --fs-h1: 9vw;
+    --fs-h1: 8vw;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
@@ -27,12 +32,27 @@
 
 body{
 	background: var(--clr-dark);
-
 }
 
+/* TITLES */
+
+h1{
+    font-family: var(--ff-primary);
+    font-size: var(--fs-h1);
+    color: var(--clr-light);
+    margin-top: .2em;
+    margin-bottom: .2em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* TABLE */
 table{
+    margin-top: 2em;
 	margin-left: auto;
-	margin-right: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
 	text-align: center;
 }
 
@@ -41,17 +61,7 @@ td{
     border-radius: 10%;
 }
 
-h1{
-	font-family: var(--ff-primary);
-    font-size: var(--fs-h1);
-    color: var(--clr-light);
-    margin-top: .2em;
-    margin-bottom: .2em;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
+/* ICONS */
 
 .fab {
     font-size: 10vw;
@@ -61,7 +71,51 @@ h1{
 
 .fab:hover{
     opacity: 0.5;
-    transform: scale(1.2);
+    transform: scale(0.8);
     color: var(--clr-accent3);
 }
 
+.fa-amazon {
+    color: var(--clr-amazon);
+}
+.fa-android {
+    color: var(--clr-android);
+}
+.fa-apple {
+    color: var(--clr-apple);
+}
+.fa-google {
+    color: var(--clr-google);
+}
+.fa-microsoft {
+    color: var(--clr-windows);
+}
+.fa-facebook-square {
+    color: var(--clr-facebook);
+}
+
+/* BUTTONS */
+.btn {
+    display: block;
+    padding: 1vw 5vw;
+    background: var(--clr-accent3);
+    color: var(--clr-accent2);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 2vw;
+    font-family: var(--ff-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+}
+
+.btn__random {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.btn:active {
+    transform: scale(0.9);
+    background: var(--clr-google);
+}

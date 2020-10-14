@@ -15,11 +15,13 @@
     
         <link rel="stylesheet" href="css/style_memory.css">
     </head>
-	<body>
+	<body onload="MemoryGame()">
 		<h1>Memory Game</h1><br>
+		<button onclick="MemoryGame()" class="btn btn__random">RANDOMIZE</button>
 		<table class="table">
 				<tbody>
                 <tr>
+					<!-- <i class="fas fa-question-circle"></i> -->
 					<td><i class="fab fa-amazon"></i></td>
 					<td><i class="fab fa-android"></i></td>
 					<td><i class="fab fa-apple"></i></td>
@@ -38,6 +40,6 @@
 					<td><i class="fab fa-microsoft"></i></td>
 				</tr>
 		</tbody></table>
-	
-
-</body></html>
+		<script src="js/memory_js.js"></script>
+</body>
+</html>
