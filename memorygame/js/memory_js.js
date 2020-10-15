@@ -9,10 +9,9 @@ function initial_cards(n) {
 
 function MemoryGame(){
     var icons= ["fab fa-amazon","fab fa-android","fab fa-apple","fab fa-google","fab fa-microsoft","fab fa-facebook-square"];
-    let card = document.getElementsByClassName("fab");
-    let cards = [...card];
-    let random_pos = initial_cards(cards.length);
-    for (let i=0; i<cards.length; i++){
-        cards[i].setAttribute("class",icons[random_pos[i]-1]);
+    let random_pos = initial_cards(icons.length*2);
+    for(let i=0; i<12; i++){
+        $("#"+i).removeAttr("class");
+        $("#"+i).addClass(icons[random_pos[i]-1]);
     }
 }
