@@ -57,23 +57,25 @@ table{
 }
 
 td{
+    font-size: 10vw;
     background: var(--clr-accent2);
     border-radius: 10%;
 }
 
 /* ICONS */
 
-.fab {
-    font-size: 10vw;
+.fab , .fas{
     transition: transform 200ms ease-in-out;
     color: var(--clr-accent);
 }
 
-.fab:hover{
+
+.fas:hover{
     opacity: 0.5;
     transform: scale(0.8);
     color: var(--clr-accent3);
 }
+
 
 .fa-amazon {
     color: var(--clr-amazon);
