@@ -18,13 +18,10 @@ function MemoryGame(){
         document.getElementById(i).addEventListener('click', function(){
             $("#"+i).removeAttr("class");
             $("#"+i).addClass(icons[rand_icons[i]-1]);
+            setTimeout(function(){
+                $("#"+i).removeAttr("class");
+                $("#"+i).addClass(flipped);
+            },1000);
         });
     }
 }
-
-
-/*let rand_icons = [3,3,2,2,1,1,4,4,5,5,6,6];
-for(let i=0; i<12; i++){
-    $("#"+i).removeAttr("class");
-    $("#"+i).addClass(icons[rand_icons[i]-1]);
-}*/
