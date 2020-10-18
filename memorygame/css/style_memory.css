@@ -76,6 +76,10 @@ td{
     color: var(--clr-accent3);
 }
 
+.fas {
+    color: #581821;
+}
+
 
 .fa-amazon {
     color: var(--clr-amazon);
