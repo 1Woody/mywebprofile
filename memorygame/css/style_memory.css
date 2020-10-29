@@ -22,9 +22,12 @@
     --clr-apple: #2b0824;
     --clr-facebook: #04756F;
     --clr-windows: #04BFBF;
-
+    --clr-bitcoin: #EFEA0C;
+    --clr-css3-alt: #EF710C;
+    --clr-firefox: #0CEF30;
+    --clr-internet-explorer: #0C4EEF;
     --fs-h1: 8vw;
-    --fs-h2: 3vw;
+    --fs-h2: 2.5vw;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
 
@@ -63,6 +66,14 @@ h2{
     justify-content: center;
 }
 
+/* DIFFICULTY OPTIONS*/
+
+.options {
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: center;
+}
+
 /* TABLE */
 table{
     margin-top: 2em;
@@ -91,7 +102,6 @@ td{
     color: var(--clr-accent);
 }
 
-
 .fas:hover{
     opacity: 0.5;
     transform: scale(0.8);
@@ -101,7 +111,6 @@ td{
 .fas {
     color: #581821;
 }
-
 
 .fa-amazon {
     color: var(--clr-amazon);
@@ -121,10 +130,42 @@ td{
 .fa-facebook-square {
     color: var(--clr-facebook);
 }
+.fa-bitcoin{
+    color: var(--clr-bitcoin);
+} 
+.fa-css3-alt{
+    color: var(--clr-css3-alt);
+}
+.fa-firefox{
+    color: var(--clr-firefox);
+}
+.fa-internet-explorer{
+    color: var(--clr-internet-explorer);
+}
+
 
 /* BUTTONS */
+.btnlvl {
+    padding: 1vw 1vw;
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 2vw;
+    font-family: var(--ff-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;
+
+    margin-top: .2em;
+    margin-bottom: .2em;
+    margin-right: .5em;
+    margin-left: .5em;
+}
+
 .btn {
-    display: block;
+    display: flex;
     padding: 1vw 5vw;
     background: var(--clr-accent3);
     color: var(--clr-accent2);
@@ -143,7 +184,7 @@ td{
     margin: 0 auto;
 }
 
-.btn:active {
+.btn:active, .btnlvl:active {
     transform: scale(0.9);
     background: var(--clr-google);
 }

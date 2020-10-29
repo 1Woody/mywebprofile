@@ -15,33 +15,50 @@
 		
 		<link rel="stylesheet" href="css/style_memory.css">
     </head>
-	<body onload="MemoryGame()">
+	<body onload="ChosenMode(6)">
 		<h1>Memory Game</h1><br>
 		<div class="info">
 			<h2 id="time">Time: 0h 0m 0s</h2>
 			<h2 id="moves">Moves: 0</h2>
 			<h2 id="pairs">Pairs: 0</h2>
 		</div>
-		<button onclick="location.reload()" class="btn btn__random">RESTART</button>
+		<div class="options">
+			<button onclick="ChosenMode(6)" class="btnlvl">EASY</button>
+			<button onclick="ChosenMode(8)" class="btnlvl">MEDIUM</button>
+			<button onclick="ChosenMode(10)" class="btnlvl">HARD</button>
+		</div>
+		<button onclick="restart()" class="btn btn__random">RESTART</button>
 		<table class="table">
 				<tbody>
-                <tr>
+                <tr class="easy">
 					<td><i id=0 ></i></td>
 					<td><i id=1 ></i></td>
 					<td><i id=2 ></i></td>
 					<td><i id=3 ></i></td>
 				</tr>
-				<tr>
+				<tr class="easy">
 					<td><i id=4 ></i></td>
 					<td><i id=5 ></i></td>
 					<td><i id=6 ></i></td>
 					<td><i id=7 ></i></td>
 				</tr>
-				<tr>
+				<tr class="easy">
                     <td><i id=8 ></i></td>
                     <td><i id=9 ></i></td>
 					<td><i id=10 ></i></td>
 					<td><i id=11 ></i></td>
+				</tr>
+				<tr id="medium">
+                    <td><i id=12 ></i></td>
+                    <td><i id=13 ></i></td>
+					<td><i id=14 ></i></td>
+					<td><i id=15 ></i></td>
+				</tr>
+				<tr id="hard">
+                    <td><i id=16 ></i></td>
+                    <td><i id=17 ></i></td>
+					<td><i id=18 ></i></td>
+					<td><i id=19 ></i></td>
 				</tr>
 		</tbody></table>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
