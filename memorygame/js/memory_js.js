@@ -84,6 +84,7 @@ function MemoryGame(mode = 6){
     }
 }
 
+// Reinicia la partida en el mode actual
 function restart(){
     ChosenMode(mode);
 }
