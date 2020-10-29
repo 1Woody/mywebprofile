@@ -61,6 +61,7 @@ h2{
 }
 
 .info {
+    margin-top: 1em;
     margin-bottom: 1em;
     display: flex;
     justify-content: center;
@@ -76,7 +77,7 @@ h2{
 
 /* TABLE */
 table{
-    margin-top: 2em;
+    margin-top: 1em;
 	margin-left: auto;
     margin-right: auto;
     margin-bottom: 2em;
@@ -89,6 +90,7 @@ td{
     border-radius: 10%;
 }
 
+
 @media (max-width: 1300px) {
     h1 {
         font-size: 8vw;
@@ -97,12 +99,9 @@ td{
         font-size: 3vw;
     }
 
-    .btn {
-        padding: 1vw 3vw; 
-    }
-    
-    .btnlvl{
-        padding: 1vw 3vw; 
+    .btn, .btnlvl{
+        padding: 0.5vw 1vw; 
+        font-size: 10vw;
     }
 
     td {
@@ -161,7 +160,7 @@ td{
 
 /* BUTTONS */
 .btnlvl {
-    padding: 1vw 1vw;
+    padding: .5vw 1vw;
     background: var(--clr-light);
     color: var(--clr-dark);
     text-decoration: none;
@@ -181,12 +180,12 @@ td{
 
 .btn {
     display: flex;
-    padding: 0.5vw 2vw;
+    padding: .5vw 1vw;
     background: var(--clr-accent3);
     color: var(--clr-accent2);
     text-decoration: none;
     cursor: pointer;
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-family: var(--ff-primary);
     text-transform: uppercase;
     letter-spacing: 2px;
