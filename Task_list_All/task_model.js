@@ -28,7 +28,7 @@ function TaskModel(name = "tasks") {
     if (Object.keys(where).length === 0)
       return tasks.length;
     else {
-      let tasks = tasks.filter(e => {
+      tasks = tasks.filter(e => {
         for (let f in where) {
           let ok = false;
           if (where[f] instanceof Array) {
@@ -72,7 +72,6 @@ function TaskModel(name = "tasks") {
              {a: true, b: false} Ascending order by a field and descending order by b field.
      offset: First elements to bypass. 0 to start by the first.
      limit:  Number of elements to return. 0 to reach the last. */
-  
   TaskModel.prototype.getAll = function(where = {}, order = {}, offset = 0, limit = 0) {
     let tasks = JSON.parse(localStorage[this.name]);
     tasks.map((e, i) => e.id = i);
@@ -124,7 +123,6 @@ function TaskModel(name = "tasks") {
       return tasks.slice(offset, offset+limit);
     }
   };
-  
 
   /* Returns the element identified by (id).
      id: Element identification. */
@@ -180,7 +178,7 @@ function TaskModel(name = "tasks") {
 
   // Resets the element list to the initial values
   TaskModel.prototype.reset = function() {
-    localStorage[this.name] = JSON.stringify(this.initial_tasks);
+    localStorage[this.name] = this.initial_tasks;
   };
 
 }

@@ -3,7 +3,7 @@
 function TaskModel(name = "tasks") {
   this.name = name;
 
-  TaskModel.prototype.initial_tasks = JSON.stringify([
+  TaskModel.prototype.initial_tasks = [
   {
     title: "PMUD HTML exercise",
     done: true
@@ -16,19 +16,18 @@ function TaskModel(name = "tasks") {
     title: "PMUD JavaScript exercise",
     done: false
   }
-  ]);
+  ];
 
-  localStorage[this.name] = localStorage[this.name] || this.initial_tasks;
+  this.tasks = JSON.parse(JSON.stringify(this.initial_tasks));
 
   /* Returns the number of elements that meet the conditions (where)
      where:  Object with conditions to filter the elements. Example:
              {a: 3, b: ['<', 5], c: ['includes', "A"]} computes a===3 && b<5 && c.includes("A") */
   TaskModel.prototype.count = function(where = {}) {
-    let tasks = JSON.parse(localStorage[this.name]);
     if (Object.keys(where).length === 0)
-      return tasks.length;
+      return this.tasks.length;
     else {
-      let tasks = tasks.filter(e => {
+      let tasks = this.tasks.filter(e => {
         for (let f in where) {
           let ok = false;
           if (where[f] instanceof Array) {
@@ -72,9 +71,8 @@ function TaskModel(name = "tasks") {
              {a: true, b: false} Ascending order by a field and descending order by b field.
      offset: First elements to bypass. 0 to start by the first.
      limit:  Number of elements to return. 0 to reach the last. */
-  
   TaskModel.prototype.getAll = function(where = {}, order = {}, offset = 0, limit = 0) {
-    let tasks = JSON.parse(localStorage[this.name]);
+    let tasks = this.tasks;
     tasks.map((e, i) => e.id = i);
     tasks = tasks.filter(e => {
       for (let f in where) {
@@ -124,16 +122,15 @@ function TaskModel(name = "tasks") {
       return tasks.slice(offset, offset+limit);
     }
   };
-  
 
   /* Returns the element identified by (id).
      id: Element identification. */
   TaskModel.prototype.get = function(id) {
-    const task = JSON.parse(localStorage[this.name])[id];
+    const task = this.tasks[id];
     if (typeof task === "undefined") {
       throw new Error(`The value of id parameter is not valid.`);
     } else {
-      return JSON.parse(JSON.stringify(task));
+      return task;
     }
   };
 
@@ -141,12 +138,10 @@ function TaskModel(name = "tasks") {
      title: String with the task title.
      done: Boolean explaining if the task is done or not. */
   TaskModel.prototype.create = function(title, done = false) {
-    let tasks = JSON.parse(localStorage[this.name]);
-    tasks.push({
+    this.tasks.push({
       title: (title || "").trim(),
       done
     });
-    localStorage[this.name] = JSON.stringify(tasks);
   };
 
   /* Updates the element identified by (id).
@@ -154,33 +149,29 @@ function TaskModel(name = "tasks") {
      title: String with the task title.
      done: Boolean explaining if the task is done or not. */
   TaskModel.prototype.update = function(id, title, done) {
-    let tasks = JSON.parse(localStorage[this.name]);
-    if (typeof tasks[id] === "undefined") {
+    if (typeof this.tasks[id] === "undefined") {
       throw new Error(`The value of id parameter is not valid.`);
     } else {
-      tasks.splice(id, 1, {
+      this.tasks.splice(id, 1, {
         title: (title || "").trim(),
         done
       });
-      localStorage[this.name] = JSON.stringify(tasks);
     }
   };
 
   /* Deletes the element identified by (id).
      id: Element identification. */
   TaskModel.prototype.delete = function(id) {
-    let tasks = JSON.parse(localStorage[this.name]);
-    if (typeof tasks[id] === "undefined") {
+    if (typeof this.tasks[id] === "undefined") {
       throw new Error(`The value of id parameter is not valid.`);
     } else {
-      tasks.splice(id, 1);
-      localStorage[this.name] = JSON.stringify(tasks);
+      this.tasks.splice(id, 1);
     }
   };
 
   // Resets the element list to the initial values
   TaskModel.prototype.reset = function() {
-    localStorage[this.name] = JSON.stringify(this.initial_tasks);
+    this.tasks = JSON.parse(JSON.stringify(this.initial_tasks));
   };
 
 }
