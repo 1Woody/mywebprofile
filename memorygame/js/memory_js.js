@@ -4,6 +4,8 @@ var flipped_icon="fas fa-question-circle";
 var cardMatrix = [];
 var flip = [];
 var wincount = 0;
+var moves = 0;
+var time =  0;
 
 function initial_cards(n) {
     arrayRandom = new Array(n).fill().map((_e,i,_a) => Math.floor(i/2)+1);
@@ -18,7 +20,11 @@ function DisplayCard(i){
     if (flip.length < 2){
         $("#"+i).removeAttr("class") && $("#"+i).addClass(cardMatrix[i]);
         flip.push(i);
-        if (flip.length == 2) setTimeout(function(){check();}, 500);
+        if (flip.length == 2) {
+            moves = moves + 1;
+            $('#moves').text("Moves: " + moves);
+            setTimeout(function(){check();}, 500);
+        }
     }
 }
 
@@ -29,6 +35,7 @@ function check(){
         }
     } else{
         wincount++;
+        $('#pairs').text("Pairs: " + wincount);
         if (wincount == 6){
             alert("Congrats!! You've won!!");
             location.reload();
@@ -38,6 +45,7 @@ function check(){
 }
 
 function MemoryGame(){
+    Time();
     let rand_icons = initial_cards(icons.length*2);
     cardMatrix = [];
     flip = [];
@@ -51,4 +59,16 @@ function MemoryGame(){
             DisplayCard(this.id);
         });
     }
+}
+
+function Time(){
+    setInterval(function(){
+        time++;
+        let h, m, s;
+        h=Math.floor(time/3600);
+        m=Math.floor((time%3600)/60);
+        s=time-h*3600-m*60;
+        let text="Time: " + h + "h " + m + "m " + s +"s";
+        $('#time').text(text);
+      }, 1000)
 }

@@ -17,7 +17,12 @@
     </head>
 	<body onload="MemoryGame()">
 		<h1>Memory Game</h1><br>
-		<button onclick="location.reload()" class="btn btn__random">RANDOMIZE</button>
+		<div class="info">
+			<h2 id="time">Time: 0h 0m 0s</h2>
+			<h2 id="moves">Moves: 0</h2>
+			<h2 id="pairs">Pairs: 0</h2>
+		</div>
+		<button onclick="location.reload()" class="btn btn__random">RESTART</button>
 		<table class="table">
 				<tbody>
                 <tr>

@@ -24,7 +24,7 @@
     --clr-windows: #04BFBF;
 
     --fs-h1: 8vw;
-    --fs-h2: 2.25rem;
+    --fs-h2: 3vw;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
 
@@ -40,11 +40,27 @@ h1{
     font-family: var(--ff-primary);
     font-size: var(--fs-h1);
     color: var(--clr-light);
+    margin-top: 4px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+h2{
+    font-family: var(--ff-primary);
+    font-size: var(--fs-h2);
+    color: var(--clr-light);
     margin-top: .2em;
     margin-bottom: .2em;
-    margin-left: auto;
-    margin-right: auto;
+    margin-right: 1em;
+    margin-left: 1em;
     text-align: center;
+    justify-content: center;
+}
+
+.info {
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: center;
 }
 
 /* TABLE */
@@ -60,6 +76,12 @@ td{
     font-size: 10vw;
     background: var(--clr-accent2);
     border-radius: 10%;
+}
+
+@media (max-width: 1300px) {
+    td {
+        font-size: 14vw;
+    }
 }
 
 /* ICONS */
