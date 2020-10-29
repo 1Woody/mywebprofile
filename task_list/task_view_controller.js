@@ -58,15 +58,29 @@ const updateController = function(id) {
 };
 
 const switchController = function(id) {
-
+  let task = task_model.get(id);
+  task_model.update(id, task.title, !task.done);
+  listController();
 };
 
 const deleteController = function(id) {
-
+  if (confirm("Estas segur de que vols esborrar la tasca?")) {
+    task_model.deletes(id);
+  }
+  listController();
 };
 
 const resetController = function() {
+  task_model.reset();
+  listController();
+};
 
+const incompleteController = function() {
+  $('#tasks').html(taskList(task_model.getIncomplete()));
+};
+
+const searchController = function(texto) {
+  $('#tasks').html(taskList(task_model.getSearch(texto)));
 };
 
 
