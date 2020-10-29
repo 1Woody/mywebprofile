@@ -26,8 +26,8 @@
     --clr-css3-alt: #EF710C;
     --clr-firefox: #0CEF30;
     --clr-internet-explorer: #0C4EEF;
-    --fs-h1: 8vw;
-    --fs-h2: 2.5vw;
+    --fs-h1: 5vw;
+    --fs-h2: 2vw;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
 
@@ -61,7 +61,7 @@ h2{
 }
 
 .info {
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     display: flex;
     justify-content: center;
 }
@@ -84,12 +84,27 @@ table{
 }
 
 td{
-    font-size: 10vw;
+    font-size: 6vw;
     background: var(--clr-accent2);
     border-radius: 10%;
 }
 
 @media (max-width: 1300px) {
+    h1 {
+        font-size: 8vw;
+    }
+    h2 {
+        font-size: 3vw;
+    }
+
+    .btn {
+        padding: 1vw 3vw; 
+    }
+    
+    .btnlvl{
+        padding: 1vw 3vw; 
+    }
+
     td {
         font-size: 14vw;
     }
@@ -151,14 +166,14 @@ td{
     color: var(--clr-dark);
     text-decoration: none;
     cursor: pointer;
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-family: var(--ff-primary);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: var(--fw-bold);
     transition: transform 200ms ease-in-out;
 
-    margin-top: .2em;
+    margin-top: 0;
     margin-bottom: .2em;
     margin-right: .5em;
     margin-left: .5em;
@@ -166,7 +181,7 @@ td{
 
 .btn {
     display: flex;
-    padding: 1vw 5vw;
+    padding: 0.5vw 2vw;
     background: var(--clr-accent3);
     color: var(--clr-accent2);
     text-decoration: none;
