@@ -25,13 +25,15 @@ function initial_cards(n) {
 //Modifica el valor del element de la taula per 
 //mostrar el icone real, a més de comprovar els acerts
 function DisplayCard(i){
-    if (flip.length < 2){
-        $("#"+i).removeAttr("class") && $("#"+i).addClass(cardMatrix[i]) && $("#"+i).addClass("listener");
-        flip.push(i);
-        if (flip.length == 2) {
-            moves = moves + 1;
-            $('#moves').text("Moves: " + moves);
-            setTimeout(function(){check();}, 500);
+    if (!$("#"+i).hasClass("done")){
+        if (flip.length < 2){
+            $("#"+i).removeAttr("class") && $("#"+i).addClass(cardMatrix[i]) && $("#"+i).addClass("listener");
+            flip.push(i);
+            if (flip.length == 2) {
+                moves = moves + 1;
+                $('#moves').text("Moves: " + moves);
+                setTimeout(function(){check();}, 500);
+            }
         }
     }
 }
@@ -44,6 +46,9 @@ function check(){
         }
     } else{
         wincount++;
+        for (let i in flip){ 
+            $("#"+flip[i]).addClass("done");
+        }
         $('#pairs').text("Pairs: " + wincount);
         if (wincount == mode){
             alert("Congrats!! You've won!!");
