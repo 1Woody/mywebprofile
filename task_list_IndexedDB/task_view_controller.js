@@ -1,9 +1,10 @@
 /*jshint esversion: 6 */
 $(function() {
 
-function TaskVC(name = "Task", id = "#tasks") {
+function TaskVC(name = "Task", id = "#tasks", index = 0) {
   this.name = name;
   this.id = id;
+  this.index = index;
   this.active = Cookie.get("active") ? JSON.parse(Cookie.get("active")) : false;
   this.search = Cookie.get("search") ? JSON.parse(Cookie.get("search")) : "";
   this.order  = Cookie.get("order")  ? JSON.parse(Cookie.get("order"))  : {};
@@ -13,12 +14,15 @@ function TaskVC(name = "Task", id = "#tasks") {
   // VIEWs
 
   TaskVC.prototype.taskList = function(tasks) {
-    return `<h1>${this.name} list</h1>
-    <span class="nobr" style="float:left;">Items/page <select name="itemsOnPage" class="iopage"><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>
-    Pagination: </span><div class="pagination"></div>
-    <button class="new">New task</button>
-    <button class="reset">Reset tasks</button>
-    <button class="list_a"></button>
+    $(document.getElementsByClassName("indexlist" + this.index)).text(this.name + " list");
+    return `
+    <span class="nobr" style="float:left;"><select name="itemsOnPage" class="iopage"><option value="5">5 Items/page</option><option value="10">10 Items/page</option><option value="25">25 Items/page</option><option value="50">50 Items/page</option><option value="100">100 Items/page</option></select>
+    </span> <div class="pagination"></div>
+    <div class="btn-group" role="group" aria-label="Taskbtgroup">
+      <button class="new btn btn-success">New task</button>
+      <button class="reset btn btn-danger">Reset tasks</button>
+      <button class="list_a btn btn-secondary"></button>
+    </div>
     <p/>
     Task Title
     <button class="uporder" title="Up order">&blacktriangle;</button>
@@ -177,5 +181,6 @@ function TaskVC(name = "Task", id = "#tasks") {
 
 // Creation of an object View-Controller for the tasks
 let task_vc = new TaskVC();
-let task_vch = new TaskVC('Home task', '#home_tasks');
+let task_vch = new TaskVC('Home task', '#home_tasks', "1");
+let task_uvch = new TaskVC('University task', '#university_tasks', 2);
 });
