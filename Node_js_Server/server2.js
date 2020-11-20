@@ -1,7 +1,7 @@
 const http = require('http');
 const url = require('url');
 const hostname = 'ubiwan.epsevg.upc.edu';
-const port = 8000;
+const port = 3002;
 http.createServer((req, res) => {
     let q = url.parse(req.url, true);
     let host = q.host;
