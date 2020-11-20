@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 $(function() {
 
-  function TaskVC(name = "Task", id = "#tasks", index = "0") {
+  function TaskVC(name = "Task", id = "#tasks", index = "0", Collapse = "show") {
     this.name = name;
     this.id = id;
     this.index = index;
@@ -9,8 +9,9 @@ $(function() {
     this.search = Cookie.get("search"+this.id) ? JSON.parse(Cookie.get("search"+this.id)) : "";
     this.order  = Cookie.get("order"+this.id)  ? JSON.parse(Cookie.get("order"+this.id))  : {};
     this.itemsOnPage = Cookie.get("itemsOnPage"+this.id) ? JSON.parse(Cookie.get("itemsOnPage"+this.id)) : 10;
-    this.Collapse = JSON.parse(Cookie.get("Collapse"+this.id)) == "show" ? "show" : "collapse";
-  
+    console.log(JSON.parse(Cookie.get("Collapse"+this.id)));
+    if (JSON.parse(Cookie.get("Collapse"+this.id)) != null) this.Collapse = JSON.parse(Cookie.get("Collapse"+this.id)) == "show" ? "show" : "collapse";
+    else this.Collapse = Collapse;
     this.currentPage = 1;
     
 
