@@ -1,15 +1,18 @@
 /*jshint esversion: 6 */
 $(function() {
 
-function TaskVC(name = "Task", id = "#tasks", index = 0) {
+function TaskVC(name = "Task", id = "#tasks", index = "0") {
   this.name = name;
   this.id = id;
   this.index = index;
-  this.active = Cookie.get("active") ? JSON.parse(Cookie.get("active")) : false;
-  this.search = Cookie.get("search") ? JSON.parse(Cookie.get("search")) : "";
-  this.order  = Cookie.get("order")  ? JSON.parse(Cookie.get("order"))  : {};
-  this.itemsOnPage = Cookie.get("itemsOnPage") ? JSON.parse(Cookie.get("itemsOnPage")) : 10;
+  this.active = Cookie.get("active"+this.id) ? JSON.parse(Cookie.get("active"+this.id)) : false;
+  this.search = Cookie.get("search"+this.id) ? JSON.parse(Cookie.get("search"+this.id)) : "";
+  this.order  = Cookie.get("order"+this.id)  ? JSON.parse(Cookie.get("order"+this.id))  : {};
+  this.itemsOnPage = Cookie.get("itemsOnPage"+this.id) ? JSON.parse(Cookie.get("itemsOnPage"+this.id)) : 10;
+  this.Collapse = JSON.parse(Cookie.get("Collapse"+this.id)) == "show" ? "show" : "collapse";
+ 
   this.currentPage = 1;
+  
 
   // VIEWs
 
@@ -33,9 +36,9 @@ function TaskVC(name = "Task", id = "#tasks", index = 0) {
     tasks.reduce(
       (ac, task) => ac += 
       `<div>
-      <button type="submit" class="delete" taskid="${task.id}" title="Delete"> <img src="public/icon_delete.png"/> </button>
-      <button type="button" class="edit"   taskid="${task.id}" title="Edit"  > <img src="public/icon_edit.png"/> </button>
-      <button type="button" class="switch" taskid="${task.id}" title=${task.done ? 'Start' : 'Stop'}> <img src="${task.done ? 'public/icon_play.png' : 'public/icon_stop.png'}"/> </button>
+      <button type="submit" class="delete btn-danger" taskid="${task.id}" title="Delete"> <img src="public/icon_delete.png"/> </button>
+      <button type="button" class="edit btn-warning"   taskid="${task.id}" title="Edit"  > <img src="public/icon_edit.png"/> </button>
+      <button type="button" class="switch btn-info" taskid="${task.id}" title=${task.done ? 'Start' : 'Stop'}> <img src="${task.done ? 'public/icon_play.png' : 'public/icon_stop.png'}"/> </button>
       ${task.title}
       </div>\n`, 
       "");
@@ -57,10 +60,11 @@ function TaskVC(name = "Task", id = "#tasks", index = 0) {
   // CONTROLLERs
 
   TaskVC.prototype.listController = function() {
-    Cookie.set("active", JSON.stringify(this.active), 7);
-    Cookie.set("search", JSON.stringify(this.search), 7);
-    Cookie.set("order",  JSON.stringify(this.order),  7);
-    Cookie.set("itemsOnPage", JSON.stringify(this.itemsOnPage), 7);
+    Cookie.set("active"+this.id, JSON.stringify(this.active), 7);
+    Cookie.set("search"+this.id, JSON.stringify(this.search), 7);
+    Cookie.set("order"+this.id,  JSON.stringify(this.order),  7);
+    Cookie.set("itemsOnPage"+this.id, JSON.stringify(this.itemsOnPage), 7);
+    Cookie.set("Collapse"+this.id, JSON.stringify(this.Collapse),7);
 
     let where = {};
     if (this.active)
@@ -149,7 +153,18 @@ function TaskVC(name = "Task", id = "#tasks", index = 0) {
     .catch(error => {throw error;});
   };
 
-  
+  TaskVC.prototype.applyCookies = function() {
+    let idtask = "#collapsetask" + this.index;
+    $(idtask).removeClass();
+    $(idtask).addClass(this.Collapse);
+  }
+
+  TaskVC.prototype.updateCookies = function() {
+    if(this.Collapse == "show") this.Collapse = "collapse";
+    else this.Collapse = "show";
+    Cookie.set("Collapse"+this.id, JSON.stringify(this.Collapse),7);
+  }
+
   // ROUTER
 
   TaskVC.prototype.eventsController = function() {
@@ -169,18 +184,41 @@ function TaskVC(name = "Task", id = "#tasks", index = 0) {
     $(document).on('click', this.id+' .doorder',() => {this.order = {title: false}; this.listController();});
     $(document).on('click', this.id+' .noorder',() => {this.order = {title: true};  this.listController();});
     $(document).on('keypress', this.id+' .form',(e) => {if (e.keyCode === 13) $(this.id+ " button[type=submit]").trigger("click");});
+    $(document).on('click', '#indexlist'+this.index, () => {this.updateCookies()});
   };
 
   // Creation of an object to manage the task model
   this.task_model = new TaskModel(this.id);
+  this.applyCookies();
   setTimeout(() => {
     this.listController();
     this.eventsController();
   }, 500);
+  
+}
+
+const mq = window.matchMedia( "(max-width: 768px)" );
+mq.addListener(mediaquery);
+mediaquery(mq);
+
+function mediaquery(mq) {
+  if (mq.matches) { //under 768
+    for (let i=0; i<3; i++){
+      let idtask = "#collapsetask" + i;
+      $(idtask).removeClass();
+      $(idtask).addClass("collapse");
+    }
+  } else { // over768
+    for (let i=0; i<3; i++){
+      let idtask = "#collapsetask" + i;
+      $(idtask).removeClass();
+      $(idtask).addClass("collapse");
+    }
+  }
 }
 
 // Creation of an object View-Controller for the tasks
 let task_vc = new TaskVC();
 let task_vch = new TaskVC('Home task', '#home_tasks', "1");
-let task_uvch = new TaskVC('University task', '#university_tasks', 2);
+let task_uvch = new TaskVC('University task', '#university_tasks', "2");
 });
