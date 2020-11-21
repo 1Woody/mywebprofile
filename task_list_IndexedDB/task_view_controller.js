@@ -9,7 +9,6 @@ $(function() {
     this.search = Cookie.get("search"+this.id) ? JSON.parse(Cookie.get("search"+this.id)) : "";
     this.order  = Cookie.get("order"+this.id)  ? JSON.parse(Cookie.get("order"+this.id))  : {};
     this.itemsOnPage = Cookie.get("itemsOnPage"+this.id) ? JSON.parse(Cookie.get("itemsOnPage"+this.id)) : 10;
-    console.log(JSON.parse(Cookie.get("Collapse"+this.id)));
     if (JSON.parse(Cookie.get("Collapse"+this.id)) != null) this.Collapse = JSON.parse(Cookie.get("Collapse"+this.id)) == "show" ? "show" : "collapse";
     else this.Collapse = Collapse;
     this.currentPage = 1;
@@ -161,7 +160,8 @@ $(function() {
     }
 
     TaskVC.prototype.updateCookies = function() {
-      if(this.Collapse == "show") this.Collapse = "collapse";
+      console.log(window.innerWidth);
+      if(this.Collapse == "show" && window.innerWidth>769) this.Collapse = "collapse";
       else this.Collapse = "show";
       Cookie.set("Collapse"+this.id, JSON.stringify(this.Collapse),7);
     }
@@ -198,12 +198,12 @@ $(function() {
     
   }
 
-
   // Creation of an object View-Controller for the tasks
   let task_vc = new TaskVC();
   let task_vch = new TaskVC('Home task', '#home_tasks', "1");
   let task_uvch = new TaskVC('University task', '#university_tasks', "2");
 
+  // Media Query 
   const mq = window.matchMedia( "(max-width: 768px)" );
   mq.addListener(mediaquery);
   mediaquery(mq);
@@ -222,3 +222,6 @@ $(function() {
     }
   }
 });
+
+/* puedo mirar el width de la pantalla cuando clique en el boton de collapse y 
+si esta menor que 768 y el valor de la cookie es abierto mantenerlo abierto */
